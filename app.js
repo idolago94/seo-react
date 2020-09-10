@@ -4,6 +4,8 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
+const isbot = require('isbot')
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
@@ -19,9 +21,12 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/headers', (req, res, next) => {
-  console.log('request', req);
-  res.json(req.rawHeaders)
+app.use('/isbot', (req, res, next) => {
+  if(isbot(req.get('user-agent'))) {
+    res.render('bot');
+  } else {
+    res.render('nobot')
+  }
 });
 app.use('/', express.static(path.join(__dirname, 'public', 'build')));
 
