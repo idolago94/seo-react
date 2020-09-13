@@ -21,14 +21,14 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/isbot', (req, res, next) => {
-  if(isbot(req.get('user-agent'))) {
-    res.render('bot');
+app.get('*', (req, res, next) => {
+  if(isbot(req.get('user-agent'))) { // request from bot
+    res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
   } else {
-    res.render('nobot')
+    next()
   }
-});
-app.use('/', express.static(path.join(__dirname, 'public', 'build')));
+}, express.static(path.join(__dirname, 'public', 'build')));
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
