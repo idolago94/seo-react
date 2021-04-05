@@ -21,6 +21,30 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// import ReactDOMServer from 'react-dom/server';
+// import { StaticRouter } from 'react-router-dom';
+
+// app.get('/*', (req, res) => {
+//   const context = {};
+//   const app = ReactDOMServer.renderToString(
+//     <StaticRouter location={req.url} context={context}>
+//       <App />
+//     </StaticRouter>
+//   );
+
+//   const indexFile = path.resolve('./build/index.html');
+//   fs.readFile(indexFile, 'utf8', (err, data) => {
+//     if (err) {
+//       console.error('Something went wrong:', err);
+//       return res.status(500).send('Oops, better luck next time!');
+//     }
+
+//     return res.send(
+//       data.replace('<div id="root"></div>', `<div id="root">${app}</div>`)
+//     );
+//   });
+// });
+
 app.get('*', (req, res, next) => {
   if(isbot(req.get('user-agent'))) { // request from bot
     res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
