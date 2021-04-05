@@ -45,6 +45,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //   });
 // });
 
+app.get('/sitemap.xml', (req, res, next) => {
+  res.sendFile(path.join(__dirname, './', 'sitemap.xml'));
+});
+
 app.get('*', (req, res, next) => {
   if(isbot(req.get('user-agent'))) { // request from bot
     res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
