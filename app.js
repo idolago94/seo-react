@@ -19,6 +19,13 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.get('/AASA', (req, res, next) => {
+  const aasa = path.join(__dirname, 'apple-app-site-association')
+
+  res.set('Content-Type', 'application/pkcs7-mime')
+  res.status(200)
+  res.sendFile(aasa)
+})
 app.use(express.static(path.join(__dirname, 'public')));
 
 // import ReactDOMServer from 'react-dom/server';
