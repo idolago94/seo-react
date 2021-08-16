@@ -19,7 +19,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.get('/AASA', (req, res, next) => {
+app.get('/.well-known', (req, res, next) => {
   const aasa = path.join(__dirname, 'apple-app-site-association')
 
   res.set('Content-Type', 'application/pkcs7-mime')
