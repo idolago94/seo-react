@@ -22,7 +22,7 @@ app.use(cookieParser());
 app.get('/.well-known', (req, res, next) => {
   const aasa = path.join(__dirname, 'apple-app-site-association')
 
-  res.set('Content-Type', 'application/json')
+  res.set('Content-Type', 'application/pkcs7-mime')
   res.status(200)
   res.sendFile(aasa)
   // const aasa = {
