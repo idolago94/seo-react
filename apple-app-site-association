@@ -2,8 +2,8 @@
     "applinks": {
         "apps": [],
         "details": [{
-            "appID": "E79G87QAN4.com.example.myapp",
-            "paths": ["https://winnerweb.moonsite.co.il", https://winnerwebqa1.moonsite.co.il, "https://winner.co.il", "http://localhost:3000", "http://sports-resultss.herokuapp.com"]
+            "appID": "J939RF2L8Z.org.reactjs.native.example.linkingApp",
+            "paths": ["*"]
             }
         ]
     }

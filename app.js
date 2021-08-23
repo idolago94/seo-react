@@ -25,6 +25,17 @@ app.get('/.well-known', (req, res, next) => {
   res.set('Content-Type', 'application/pkcs7-mime')
   res.status(200)
   res.sendFile(aasa)
+  // const aasa = {
+  //   "applinks": {
+  //     "apps": [],
+  //     "details": [{
+  //       "appID": "J939RF2L8Z.org.reactjs.native.example.linkingApp",
+  //       "paths": ["*"]
+  //     }
+  //     ]
+  //   }
+  // }
+  // res.json(aasa)
 })
 app.use(express.static(path.join(__dirname, 'public')));
 
@@ -57,7 +68,7 @@ app.get('/sitemap.xml', (req, res, next) => {
 });
 
 app.get('*', (req, res, next) => {
-  if(isbot(req.get('user-agent'))) { // request from bot
+  if (isbot(req.get('user-agent'))) { // request from bot
     res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
   } else {
     next()
@@ -66,12 +77,12 @@ app.get('*', (req, res, next) => {
 
 
 // catch 404 and forward to error handler
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
   next(createError(404));
 });
 
 // error handler
-app.use(function(err, req, res, next) {
+app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
