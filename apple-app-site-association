@@ -2,7 +2,7 @@
 	"applinks": {
 			"details": [
 					 {
-						 "appIDs": [ "J939RF2L8Z.org.reactjs.native.example.linkingApp" ],
+						 "appIDs": [ "J939RF2L8Z.com.toto.winner" ],
 						 "components": ["*"]
 					 }
 			 ]
