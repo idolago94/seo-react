@@ -18,6 +18,7 @@ app.get('/apple-app-site-association', function(req, res, next) {
      res.set('Content-Type', 'application/pkcs7-mime');
      res.status(200).send(aasa);
 });
+app.use('/', indexRouter);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -75,13 +76,13 @@ app.get('/sitemap.xml', (req, res, next) => {
   res.sendFile(path.join(__dirname, './', 'sitemap.xml'));
 });
 
-app.get('*', (req, res, next) => {
-  if (isbot(req.get('user-agent'))) { // request from bot
-    res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
-  } else {
-    next()
-  }
-}, express.static(path.join(__dirname, 'public', 'build')));
+// app.get('*', (req, res, next) => {
+//   if (isbot(req.get('user-agent'))) { // request from bot
+//     res.sendFile(path.join(__dirname, 'public/build', req.url, 'index.html'));
+//   } else {
+//     next()
+//   }
+// }, express.static(path.join(__dirname, 'public', 'build')));
 
 
 // catch 404 and forward to error handler

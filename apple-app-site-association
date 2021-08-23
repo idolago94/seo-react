@@ -3,16 +3,7 @@
 			"details": [
 					 {
 						 "appIDs": [ "J939RF2L8Z.org.reactjs.native.example.linkingApp" ],
-						 "components": [
-							 {
-									"/": "/launch",
-									"comment": "Launch the app"
-							 },
-							 {
-									"/": "help",
-									"comment": "Open help"
-							 }
-						 ]
+						 "components": ["*"]
 					 }
 			 ]
 	 }
