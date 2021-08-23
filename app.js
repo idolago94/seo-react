@@ -13,6 +13,7 @@ var usersRouter = require('./routes/users');
 var app = express();
 
 var aasa = fs.readFileSync(__dirname + '/apple-app-site-association');
+// "J939RF2L8Z.org.reactjs.native.example.linkingApp"
 app.get('/apple-app-site-association', function(req, res, next) {
      res.set('Content-Type', 'application/pkcs7-mime');
      res.status(200).send(aasa);

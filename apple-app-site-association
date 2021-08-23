@@ -1,10 +1,19 @@
 {
-    "applinks": {
-        "apps": [],
-        "details": [{
-            "appID": "J939RF2L8Z.org.reactjs.native.example.linkingApp",
-            "paths": ["*"]
-            }
-        ]
-    }
+	"applinks": {
+			"details": [
+					 {
+						 "appIDs": [ "J939RF2L8Z.org.reactjs.native.example.linkingApp" ],
+						 "components": [
+							 {
+									"/": "/launch",
+									"comment": "Launch the app"
+							 },
+							 {
+									"/": "help",
+									"comment": "Open help"
+							 }
+						 ]
+					 }
+			 ]
+	 }
 }
