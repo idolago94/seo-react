@@ -3,7 +3,7 @@
 			"details": [
 					 {
 						 "appIDs": [ "J939RF2L8Z.com.toto.winner" ],
-						 "components": ["*"]
+						 "components": ["*", "/"]
 					 }
 			 ]
 	 }

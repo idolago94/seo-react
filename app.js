@@ -18,6 +18,10 @@ app.get('/apple-app-site-association', function(req, res, next) {
      res.set('Content-Type', 'application/pkcs7-mime');
      res.status(200).send(aasa);
 });
+app.get('/.well-known/apple-app-site-association', function(req, res, next) {
+  res.set('Content-Type', 'application/pkcs7-mime');
+  res.status(200).send(aasa);
+});
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
