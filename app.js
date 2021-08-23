@@ -11,9 +11,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-app.get('/.well-known/apple-app-site-association', function (request, response) {
-  res.set('Content-Type', 'application/json')
-  response.sendFile(__dirname + '/apple-app-site-association');
+var aasa = fs.readFileSync(__dirname + '/apple-app-site-association');
+app.get('/apple-app-site-association', function(req, res, next) {
+     res.set('Content-Type', 'application/json');
+     res.status(200).send(aasa);
 });
 
 // view engine setup
