@@ -11,6 +11,10 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+app.get('/.well-known/apple-app-site-association', function(request, response) {
+  response.sendFile(__dirname +  '/apple-app-site-association');
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -19,27 +23,24 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.get('/.well-known', (req, res, next) => {
-  // const aasa = path.join(__dirname, 'apple-app-site-association')
+// app.get('/.well-known', (req, res, next) => {
+//   const aasa = path.join(__dirname, 'apple-app-site-association')
 
-  // res.set('Content-Type', 'application/pkcs7-mime')
-  // res.status(200)
-  // res.sendFile(aasa)
-  const aasa = {
-    "applinks": {
-      "apps": [],
-      "details": [{
-        "appID": "J939RF2L8Z.org.reactjs.native.example.linkingApp",
-        "paths": ["*"]
-      }
-      ]
-    }
-  }
-  res.json(aasa)
-})
-// app.get('/.well-known/apple-app-site-association', function(request, response) {
-//   response.sendFile(__dirname +  '/apple-app-site-association');
-// });
+//   res.set('Content-Type', 'application/pkcs7-mime')
+//   res.status(200)
+//   res.sendFile(aasa)
+//   // const aasa = {
+//   //   "applinks": {
+//   //     "apps": [],
+//   //     "details": [{
+//   //       "appID": "J939RF2L8Z.org.reactjs.native.example.linkingApp",
+//   //       "paths": ["*"]
+//   //     }
+//   //     ]
+//   //   }
+//   // }
+//   // res.json(aasa)
+// })
 app.use(express.static(path.join(__dirname, 'public')));
 
 // import ReactDOMServer from 'react-dom/server';
