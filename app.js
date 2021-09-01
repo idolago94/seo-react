@@ -12,7 +12,8 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
-var aasa = fs.readFileSync(__dirname + '/apple-app-site-association');
+const aasa = fs.readFileSync(__dirname + '/apple-app-site-association');
+const assetlinks = fs.readFileSync(__dirname + '/assetlinks.json');
 // "J939RF2L8Z.org.reactjs.native.example.linkingApp"
 app.get('/apple-app-site-association', function(req, res, next) {
      res.set('Content-Type', 'application/pkcs7-mime');
@@ -21,6 +22,10 @@ app.get('/apple-app-site-association', function(req, res, next) {
 app.get('/.well-known/apple-app-site-association', function(req, res, next) {
   res.set('Content-Type', 'application/pkcs7-mime');
   res.status(200).send(aasa);
+});
+app.get('/.well-known/assetlinks.json', function(req, res, next) {
+  res.set('Content-Type', 'application/json');
+  res.status(200).send(assetlinks);
 });
 
 // view engine setup

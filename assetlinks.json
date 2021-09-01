@@ -1,0 +1,14 @@
+[
+    {
+        "relation": [
+            "delegate_permission/common.handle_all_urls"
+        ],
+        "target": {
+            "namespace": "android_app",
+            "package_name": "com.moblin.totowiner",
+            "sha256_cert_fingerprints": [
+                "E7:F8:00:E9:7F:AB:C4:5C:93:9C:7A:2C:99:7B:F6:34:DF:56:C8:90:5D:1E:99:60:D9:D8:BC:54:E8:76:F1:E0"
+            ]
+        }
+    }
+]
